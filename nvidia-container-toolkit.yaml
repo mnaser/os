@@ -16,6 +16,9 @@ environment:
       - busybox
       - ca-certificates-bundle
       - go
+      - openssf-compiler-options
+  environment:
+    GCC_SPEC_FILE: /dev/null
 
 pipeline:
   - uses: git-checkout
