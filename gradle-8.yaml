@@ -63,11 +63,7 @@ update:
   enabled: true
   ignore-regex-patterns:
     - -M*
-<<<<<<< HEAD
-    - -RC* 
-=======
     - -RC*
->>>>>>> aa3a80b0a (update to java17)
   github:
     identifier: gradle/gradle
     strip-prefix: v
