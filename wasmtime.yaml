@@ -25,12 +25,21 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: 2e584e84127f0123c5a9211310140419e12082c2
 
+  #  # mitigate GHSA-h97m-ww89-6jmq
+  # - uses: rust/cargobump
+
   - name: Configure and build
     runs: |
       git submodule update --init
 
       # mitigate GHSA-2qv5-7mw5-j3cg
       cargo update spin --precise 0.9.8
+
+
+
+      # mitigate GHSA-h97m-ww89-6jmq
+      cargo update url --precise 2.5.4
+      cargo update idna --precise 1.0.3
 
       cargo auditable build --release -vv
       mkdir -p ${{targets.destdir}}/usr/bin/
